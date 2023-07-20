@@ -23,7 +23,7 @@ export default async function UserProfile({ params }: Props) {
       <img 
       width={300}
       src={image ?? '/mememan.webp'}
-      alt={`${name}`s profile}
+      alt={`${name}'s profile`}
       />
 
       <h3>Bio</h3>
