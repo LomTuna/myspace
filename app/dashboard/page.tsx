@@ -1,6 +1,8 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
+import { prisma } from "@/lib/prisma";
+import { ProfileForm } from "./ProfileForm";
 
 export default async function Dashboard () {
   // need this to only allow visibility for logged in users
@@ -14,13 +16,13 @@ export default async function Dashboard () {
   const user = await prisma.user.findUnique({
     where: {
       email: currentUserEmail
-    }
-  })
+    },
+  }); 
 
   return (
     <>
       <h1>Dashboard</h1>
       <ProfileForm user={user}/>
     </>
-  )
+  ); 
 }
