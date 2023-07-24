@@ -15,14 +15,15 @@ export function ProfileForm({user}: any) {
       image: formData.get('image'),     
     }; 
 
-    const res = await fetch('api/user', {
+    const res = await fetch('/api/users', {
       method: 'PUT', 
       body: JSON.stringify(body), 
       headers: {
         'Content-Type': 'applications/json',
       },
     }); 
-  
+
+    await res.json(); 
   }; 
 
 
